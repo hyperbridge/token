@@ -1,0 +1,31 @@
+{
+  "name": "hbx-token",
+  "version": "1.0.0",
+  "description": "HBX Token",
+  "author": "Hyperbridge Technology",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd smart-contracts/ethereum && truffle compile",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyperbridge/hbx-token.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyperbridge/hbs-token/issues"
+  },
+  "engines": {
+    "node": "~9.5.0",
+  },
+  "homepage": "https://github.com/hyperbridge/hbx-token#readme",
+  "dependencies": {
+    "ganache-cli": "^6.1.0",
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^2.0.2",
+  }
+}
