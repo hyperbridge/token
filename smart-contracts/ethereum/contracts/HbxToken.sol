@@ -6,7 +6,7 @@ import "./TokenLib.sol";
 import "./UpgradableToken.sol";
 
 
-contract Token is UpgradableToken, DetailedERC20, Pausable {
+contract HbxToken is UpgradableToken, DetailedERC20, Pausable {
 
     using TokenLib for address;
 
@@ -16,7 +16,7 @@ contract Token is UpgradableToken, DetailedERC20, Pausable {
         DetailedERC20(_name, _symbol, _decimals) public {
     }
 
-    function setStorage(address _storage) public onlyOwner {
+    function setStorage(address _storage) public onlyOwner unlessUpgraded whenNotPaused {
         tokenStorage = _storage;
     }
 
@@ -24,7 +24,7 @@ contract Token is UpgradableToken, DetailedERC20, Pausable {
         return tokenStorage.totalSupply();
     }
 
-    function mint(address _to, uint _value) public onlyOwner returns (bool) {
+    function mint(address _to, uint _value) public onlyOwner unlessUpgraded whenNotPaused returns (bool) {
         return tokenStorage.mint(_to, _value);
     }
 
