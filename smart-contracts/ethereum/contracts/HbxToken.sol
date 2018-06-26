@@ -12,8 +12,10 @@ contract HbxToken is UpgradableToken, DetailedERC20, Pausable {
 
     address tokenStorage;
     
-    constructor(string _name, string _symbol, uint8 _decimals) 
+    constructor(string _name, string _symbol, uint8 _decimals, address _storage, uint256 _totalSupply) 
         DetailedERC20(_name, _symbol, _decimals) public {
+        setStorage(_storage);
+        tokenStorage.setTotalSupply(_totalSupply);
     }
 
     function setStorage(address _storage) public onlyOwner unlessUpgraded whenNotPaused {

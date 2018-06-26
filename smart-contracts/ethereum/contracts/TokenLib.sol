@@ -30,6 +30,9 @@ library TokenLib {
     return true;
   }
 
+  function setTotalSupply(address _storage, uint256 _totalSupply) public returns (bool) {
+    EternalStorage(_storage).setUint(keccak256(abi.encodePacked('totalSupply')), _totalSupply);
+  }
 
   function totalSupply(address _storage) public view returns (uint256) {
     return EternalStorage(_storage).getUint(keccak256(abi.encodePacked('totalSupply')));
