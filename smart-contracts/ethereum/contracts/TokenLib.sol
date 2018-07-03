@@ -7,7 +7,7 @@ library TokenLib {
   using SafeMath for uint256;
   event Transfer(address indexed _from, address indexed _to, uint256 _value);
   event Approval(address indexed _owner, address indexed _spender, uint256 _value);
-  
+
   /* struct TokenStorage { address storage} */
 
   function transfer(address _storage, address _to, uint256 _value) public returns (bool) {
@@ -19,18 +19,16 @@ library TokenLib {
     EternalStorage(_storage).setUint(keccak256(abi.encodePacked('balance', msg.sender)), senderBalance.sub(_value));
     EternalStorage(_storage).setUint(keccak256(abi.encodePacked('balance', _to)), receiverBalance.add(_value));
     emit Transfer(msg.sender, _to, _value);
-    
+
     return true;
   }
 
-  function mint(address _storage, address _to, uint256 _value) public returns(bool) {
-
+  function mint(address _storage, address _to, uint256 _value) public {
     EternalStorage(_storage).setUint(keccak256(abi.encodePacked('balance', _to)), _value);
     EternalStorage(_storage).setUint(keccak256(abi.encodePacked('totalSupply')), _value);
-    return true;
   }
 
-  function setTotalSupply(address _storage, uint256 _totalSupply) public returns (bool) {
+  function setTotalSupply(address _storage, uint256 _totalSupply) public {
     EternalStorage(_storage).setUint(keccak256(abi.encodePacked('totalSupply')), _totalSupply);
   }
 
@@ -69,7 +67,7 @@ library TokenLib {
     EternalStorage(_storage).setUint(keccak256(abi.encodePacked('balance', _from)), senderBalance.sub(_value));
     EternalStorage(_storage).setUint(keccak256(abi.encodePacked('balance', _to)), receiverBalance.add(_value));
 
-    setAllowance(_storage, _from, _to, allowanceValue.sub(_value));
+    setAllowance(_storage, _from, msg.sender, allowanceValue.sub(_value));
     emit Transfer(_from, _to, _value);
 
     return true;

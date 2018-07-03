@@ -30,11 +30,15 @@ contract UpgradableToken is ERC20, Ownable {
     return successor != address(0);
   }
 
+  constructor(string _version) public {
+      version = _version;
+  }
+
   function upgradeTo(address _successor) public onlyOwner unlessUpgraded returns (bool){
     require(_successor != address(0));
-    
+
     uint remainingContractBalance = balanceOf(this);
-    
+
     if (remainingContractBalance > 0) {
       this.transfer(_successor, remainingContractBalance);
     }
