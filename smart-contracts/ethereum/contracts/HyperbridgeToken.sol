@@ -1,8 +1,8 @@
 pragma solidity ^0.4.24;
 
-import "./openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
-contract Proxy is Ownable {
+contract HyperbridgeToken is Ownable {
 
   event UpgradedTo(address indexed implementation);
 

@@ -1,11 +1,11 @@
 pragma solidity ^0.4.24;
 
-import "./openzeppelin-solidity/contracts/lifecycle/Pausable.sol";
-import "./openzeppelin-solidity/contracts/token/ERC20/DetailedERC20.sol";
+import "openzeppelin-solidity/contracts/lifecycle/Pausable.sol";
+import "openzeppelin-solidity/contracts/token/ERC20/DetailedERC20.sol";
 import "./TokenLib.sol";
 import "./UpgradableToken.sol";
 
-contract HbxToken is UpgradableToken, DetailedERC20, Pausable {
+contract HbxTokenDelegate is UpgradableToken, DetailedERC20, Pausable {
 
     using TokenLib for address;
 

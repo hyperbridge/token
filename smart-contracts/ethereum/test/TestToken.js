@@ -1,6 +1,6 @@
-var Proxy = artifacts.require("Proxy");
+var Proxy = artifacts.require("HyperbridgeToken");
 var EternalStorage = artifacts.require("EternalStorage");
-var HbxToken = artifacts.require("HbxToken");
+var HbxToken = artifacts.require("HbxTokenDelegate");
 var TokenLib = artifacts.require("TokenLib");
 
 const BigNumber = web3.BigNumber;
@@ -10,8 +10,7 @@ const should = require('chai')
 .use(require('chai-bignumber')(BigNumber))
 .should();
 
-
-contract('HbxToken', function([owner1, owner2, owner3, randomAccount, randomAccount2]) {
+contract('Token', function([owner1, owner2, owner3, randomAccount, randomAccount2]) {
     let proxy;
     let hbxToken;
     let eternalStorage;
@@ -118,8 +117,6 @@ contract('HbxToken', function([owner1, owner2, owner3, randomAccount, randomAcco
         newAllowance.should.be.bignumber.equal(allowance - 100);
     });
 
-
-
     it("should allow to increase and decrease approval", async () => {
         old_allowance = await proxy.allowance(owner3, randomAccount);
 
@@ -134,7 +131,6 @@ contract('HbxToken', function([owner1, owner2, owner3, randomAccount, randomAcco
         decreasedAllowance.should.be.bignumber.equal(increasedAllowance - 100);
     });
 
-
     it("should migrates funds after upgradeTo a new implementation", async () => {
         oldImplementation = await proxy.implementation();
         oldContractBalance = await proxy.balanceOf(oldImplementation);
@@ -148,5 +144,4 @@ contract('HbxToken', function([owner1, owner2, owner3, randomAccount, randomAcco
         newContractBalance = await proxy.balanceOf(newImplementation);
         newContractBalance.should.be.bignumber.equal(oldContractBalance);
     });
-
 });

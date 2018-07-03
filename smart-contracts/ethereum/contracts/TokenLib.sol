@@ -1,7 +1,7 @@
 pragma solidity ^0.4.24;
 
 import "./EternalStorage.sol";
-import "./openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 
 library TokenLib {
   using SafeMath for uint256;
