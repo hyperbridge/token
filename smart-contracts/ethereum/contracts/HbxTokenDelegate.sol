@@ -5,7 +5,7 @@ import "openzeppelin-solidity/contracts/token/ERC20/DetailedERC20.sol";
 import "./TokenLib.sol";
 import "./UpgradableToken.sol";
 
-contract HbxTokenDelegate is UpgradableToken, DetailedERC20, Pausable {
+contract HyperbridgeTokenDelegate is UpgradableToken, DetailedERC20, Pausable {
 
     using TokenLib for address;
 

@@ -1,6 +1,6 @@
 var Proxy = artifacts.require("HyperbridgeToken");
 var EternalStorage = artifacts.require("EternalStorage");
-var HbxToken = artifacts.require("HbxTokenDelegate");
+var HbxToken = artifacts.require("HyperbridgeTokenDelegate");
 var TokenLib = artifacts.require("TokenLib");
 
 const BigNumber = web3.BigNumber;
