@@ -13,7 +13,7 @@ The Hyperbridge token project consists of 3 areas:
 
 [![](https://img.shields.io/badge/discord-server-brightgreen.svg)](https://discord.gg/wVMTjEb)
 
-[![](https://img.shields.io/badge/gitter-brightgreen.svg)](https://gitter.im/Hyperbridge/Lobby)
+[![](https://img.shields.io/gitter/room/Hyperbridge/Lobby.svg)](https://gitter.im/Hyperbridge/Lobby)
 
 [![](https://img.shields.io/badge/twitter-%40hyperbridge-blue.svg)](https://twitter.com/@hyperbridge)
 
