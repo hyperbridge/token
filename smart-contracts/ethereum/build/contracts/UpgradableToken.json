@@ -1636,7 +1636,7 @@
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1903,
+                        "referencedDeclaration": 1905,
                         "src": "993:4:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_UpgradableToken_$1506",
@@ -1787,7 +1787,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1903,
+                              "referencedDeclaration": 1905,
                               "src": "1047:4:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_UpgradableToken_$1506",
@@ -3707,7 +3707,7 @@
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1903,
+                        "referencedDeclaration": 1905,
                         "src": "993:4:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_UpgradableToken_$1506",
@@ -3858,7 +3858,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1903,
+                              "referencedDeclaration": 1905,
                               "src": "1047:4:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_UpgradableToken_$1506",
@@ -4524,5 +4524,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-21T00:50:19.257Z"
+  "updatedAt": "2018-08-17T02:25:36.397Z"
 }
