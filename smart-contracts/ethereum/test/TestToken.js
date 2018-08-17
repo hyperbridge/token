@@ -1,7 +1,7 @@
-var Proxy = artifacts.require("HyperbridgeToken");
-var EternalStorage = artifacts.require("EternalStorage");
-var HbxToken = artifacts.require("HyperbridgeTokenDelegate");
-var TokenLib = artifacts.require("TokenLib");
+const Token = artifacts.require("Token");
+const EternalStorage = artifacts.require("EternalStorage");
+const TokenDelegate = artifacts.require("TokenDelegate");
+const TokenLib = artifacts.require("TokenLib");
 
 const BigNumber = web3.BigNumber;
 
@@ -17,28 +17,30 @@ contract('Token', function([owner1, owner2, owner3, randomAccount, randomAccount
     let tokenLib;
 
     before(async () => {
-        proxy = await Proxy.new({from: owner1});
+        proxy = await Token.new({from: owner1});
         eternalStorage = await EternalStorage.new({from: owner2});
 
         tokenLib = await TokenLib.new();
 
-        HbxToken.link("TokenLib", tokenLib.address);
+        TokenDelegate.link("TokenLib", tokenLib.address);
 
-        hbxToken = await HbxToken.new(
+        hbxToken = await TokenDelegate.new(
             "Hyperbridge Token",
             "HBX",
             18,
             eternalStorage.address,
-            "1.0"
-            ,{from: owner3});
+            "1.0",
+            {from: owner3}
+        );
 
-        hbxTokenV2 = await HbxToken.new(
+        hbxTokenV2 = await TokenDelegate.new(
             "Hyperbridge Token V2",
             "HBX",
             18,
             eternalStorage.address,
-            "2.0"
-            ,{from: owner3});
+            "2.0",
+            {from: owner3}
+        );
     });
 
     it("should deploy contracts", async () => {
@@ -47,7 +49,7 @@ contract('Token', function([owner1, owner2, owner3, randomAccount, randomAccount
         hbxToken.should.not.be.undefined;
     });
 
-    it("should allow eternalStorage superadmin to add HbxToken as admin", async () => {
+    it("should allow eternalStorage superadmin to add TokenDelegate as admin", async () => {
         await eternalStorage.addAdmin(hbxToken.address, {from: owner2}).should.be.fulfilled;
     });
 
@@ -58,7 +60,7 @@ contract('Token', function([owner1, owner2, owner3, randomAccount, randomAccount
 
     it("should upgrade to new implementation by owner", async () => {
         await proxy.upgradeTo(hbxToken.address, {from: owner1}).should.be.fulfilled;
-        proxy = _.extend(HbxToken.at(hbxToken.address), proxy);
+        proxy = _.extend(TokenDelegate.at(hbxToken.address), proxy);
     });
 
     it("should rejects upgrading to new implementation by none owner", async () => {
@@ -136,7 +138,7 @@ contract('Token', function([owner1, owner2, owner3, randomAccount, randomAccount
         oldContractBalance = await proxy.balanceOf(oldImplementation);
 
         await proxy.upgradeTo(hbxTokenV2.address, {from: owner1}).should.be.fulfilled;
-        proxy = _.extend(HbxToken.at(hbxTokenV2.address), proxy);
+        proxy = _.extend(TokenDelegate.at(hbxTokenV2.address), proxy);
 
         newImplementation = await proxy.implementation();
         newImplementation.should.be.equal(hbxTokenV2.address);

@@ -2,8 +2,7 @@ pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
-contract HyperbridgeToken is Ownable {
-
+contract Token is Ownable {
   event UpgradedTo(address indexed implementation);
 
   address internal _implementation;
@@ -33,5 +32,4 @@ contract HyperbridgeToken is Ownable {
       default { return(ptr, size) }
     }
   }
-
 }

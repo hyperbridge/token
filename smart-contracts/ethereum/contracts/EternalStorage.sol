@@ -1,6 +1,7 @@
 pragma solidity ^0.4.24;
 
 import "./Administratable.sol";
+
 /**
  * @title EternalStorage
  * @dev An Administratable contract that can be used as a storage where the variables
@@ -120,5 +121,4 @@ contract EternalStorage is Administratable {
   function getBytes(bytes32 h) public view returns (bytes){
     return s._bytes[h];
   }
-
 }
