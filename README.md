@@ -17,20 +17,20 @@ This is the official token of the Hyperbridge ecosystem, built with Truffle, Ope
 
 ## Quick Links
 
-- [Site](http://hyperbridge.org/)
+- 🌐 [Site](http://hyperbridge.org/)
 - 📖 [Docs](http://docs.hyperbridge.org/funding-protocol)
-- [EIPs](https://github.com/hyperbridge/EIPs)
-- [Web Client](https://github.com/hyperbridge/blockhub-web-client)
-- [Desktop Client](https://github.com/hyperbridge/blockhub-desktop-client)
-- [Node Operator](https://github.com/hyperbridge/blockhub-node-operator)
-- [Token](https://github.com/hyperbridge/token)
-- [Funding Protocol](https://github.com/hyperbridge/funding-protocol)
-- [Marketplace Protocol](https://github.com/hyperbridge/marketplace-protocol)
+- 📓 [EIPs](https://github.com/hyperbridge/EIPs)
+- 💻 [Web Client](https://github.com/hyperbridge/blockhub-web-client)
+- 💻 [Desktop Client](https://github.com/hyperbridge/blockhub-desktop-client)
+- 🛡 [Node Operator](https://github.com/hyperbridge/blockhub-node-operator)
+- 🔗 [Token](https://github.com/hyperbridge/token)
+- 🔗 [Funding Protocol](https://github.com/hyperbridge/funding-protocol)
+- 🔗 [Marketplace Protocol](https://github.com/hyperbridge/marketplace-protocol)
 
 
 ## Intro
 
-The Hyperbridge token project consists of 3 areas:
+The Hyperbridge Token project consists of 3 areas:
 
 * Smart Contracts (Ethereum) - in the `smart-contracts` dir
 * Communication API (JSON.API) - in the `communication-api` dir

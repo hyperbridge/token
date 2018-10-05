@@ -1,9 +1,9 @@
 import * as truffleContract from 'truffle-contract'
 import * as abiDecoder from './lib/abi-decoder'
 
-const provider = new window.Web3.providers.HttpProvider("http://localhost:8545")
+// const provider = new window.Web3.providers.HttpProvider("http://localhost:8545")
 
-window.web3 = new window.Web3(provider)
+// window.web3 = new window.Web3(provider)
 
 
 export let state = {
@@ -13,19 +13,19 @@ export let state = {
         EternalStorage: {
             contract: null,
             deployed: null,
-            meta: require('../../smart-contracts/ethereum/build/contracts/EternalStorage.json'),
+            meta: require(__dirname + '/../../../smart-contracts/ethereum/build/contracts/EternalStorage.json'),
             address: null
         },
         Token: {
             contract: null,
             deployed: null,
-            meta: require('../../smart-contracts/ethereum/build/contracts/Token.json'),
+            meta: require(__dirname + '/../../../smart-contracts/ethereum/build/contracts/Token.json'),
             address: null
         },
         TokenDelegate: {
             contract: null,
             deployed: null,
-            meta: require('../../smart-contracts/ethereum/build/contracts/TokenDelegate.json'),
+            meta: require(__dirname + '/../../../smart-contracts/ethereum/build/contracts/TokenDelegate.json'),
             address: null
         }
     }
